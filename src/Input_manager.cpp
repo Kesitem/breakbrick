@@ -41,7 +41,6 @@ void ugly::input_manager::update()
         auto button = button_itor.second;
         if(button.get_action() == input_action::pressed || button.get_action() == input_action::repeated || button.get_action() == input_action::released)
         {
-            LOG_DEBUG << "Button: " << button_itor.first << "action is set to NONE";
             button.set_action(input_action::none);
         }
     }
