@@ -111,6 +111,10 @@ void ugly::engine::initialize()
         throw std::runtime_error("Failed to init GLFW");
     }
 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
     LOG_INFO << "Window size: " << _window_width << "x" << _window_height;
     _window = glfwCreateWindow(_window_width, _window_height, ugly::project::NAME.c_str(), NULL, NULL);
     if (!_window)

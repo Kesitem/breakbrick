@@ -35,6 +35,7 @@ set(HEADERS
     input_state.h
     input_button.h
     input_manager.h
+    shader.h
     engine.h
     application.h
 )
@@ -44,6 +45,7 @@ set(SRCS
     log_formatter.cpp
     input_button.cpp
     input_manager.cpp
+    shader.cpp
     engine.cpp
     application.cpp
     main.cpp

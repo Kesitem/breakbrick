@@ -22,6 +22,29 @@ void ugly::application::intialize()
 
     engine->get_input_manager()->create_button("quit");
     engine->get_input_manager()->bind_key_to_button(GLFW_KEY_ESCAPE, "quit");
+
+    /** Vertex shader source **/
+    char* vertex_shader_source = "#version 330 core\n"
+        "layout (location = 0) in vec3 aPos;\n"
+        "void main()\n"
+        "{\n"
+        "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+        "}\0";
+
+    /** Fragment shader source **/
+    char* fragment_shader_source = "#version 330 core\n"
+        "out vec4 FragColor;\n"
+        "void main()\n"
+        "{\n"
+        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+        "}\0";
+
+    float vertices[] = 
+    {
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f,  0.5f, 0.0f
+    };  
 }
 
 
