@@ -41,6 +41,7 @@ set(HEADERS
     shader.h
     program.h
     vertex_buffer.h
+    index_buffer.h
     engine.h
     application.h
 )
@@ -53,6 +54,7 @@ set(SRCS
     shader.cpp
     program.cpp
     vertex_buffer.cpp
+    index_buffer.cpp
     engine.cpp
     application.cpp
     main.cpp
