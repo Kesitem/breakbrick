@@ -15,5 +15,17 @@
     "vcpkg.target.installDependencies": true,
     "vcpkg.target.preferSystemLibs": false,
     "vcpkg.target.useManifest": true,
+    "files.associations": {
+        "chrono": "cpp",
+        "format": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "type_traits": "cpp",
+        "vector": "cpp",
+        "xhash": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp"
+    },
 
 }

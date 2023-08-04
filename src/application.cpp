@@ -1,6 +1,6 @@
 #include "application.h"
 #include "engine.h"
-
+#include "vertex_buffer.h"
 
 ugly::application::application()
 {
@@ -48,8 +48,13 @@ void ugly::application::intialize()
 
     // Create program
     _program = std::make_unique<ugly::program>(vertex_shader_source, fragment_shader_source);
-}
 
+    // Create vertex buffer
+    auto vb = ugly::vertex_buffer(sizeof(vertices), vertices);
+    vb.set_layout(
+        ugly::buffer_layout({
+            ugly::buffer_element("a_vertex", ugly::buffer_data_type::FLOAT3, false) }));
+}
 
 
 void ugly::application::shutdown()

@@ -40,6 +40,7 @@ set(HEADERS
     input_manager.h
     shader.h
     program.h
+    vertex_buffer.h
     engine.h
     application.h
 )
@@ -51,6 +52,7 @@ set(SRCS
     input_manager.cpp
     shader.cpp
     program.cpp
+    vertex_buffer.cpp
     engine.cpp
     application.cpp
     main.cpp
