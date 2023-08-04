@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core.h"
+#include "program.h"
 
 namespace ugly
 {
@@ -33,6 +34,11 @@ namespace ugly
          * \brief Update application
          */
         virtual void update();
+
+    private:
+
+        /*! Program */
+        std::unique_ptr<ugly::program> _program {nullptr};
     };
 
 }//namespace ugly

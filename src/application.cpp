@@ -45,6 +45,9 @@ void ugly::application::intialize()
         0.5f, -0.5f, 0.0f,
         0.0f,  0.5f, 0.0f
     };  
+
+    // Create program
+    _program = std::make_unique<ugly::program>(vertex_shader_source, fragment_shader_source);
 }
 
 
@@ -64,4 +67,6 @@ void ugly::application::update()
 
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    _program->use();
 }
