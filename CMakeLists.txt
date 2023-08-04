@@ -42,6 +42,7 @@ set(HEADERS
     program.h
     vertex_buffer.h
     index_buffer.h
+    vertex_arrays.h
     engine.h
     application.h
 )
@@ -55,6 +56,7 @@ set(SRCS
     program.cpp
     vertex_buffer.cpp
     index_buffer.cpp
+    vertex_arrays.cpp
     engine.cpp
     application.cpp
     main.cpp

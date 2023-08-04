@@ -2,6 +2,7 @@
 
 #include "core.h"
 #include "program.h"
+#include "vertex_arrays.h"
 
 namespace ugly
 {
@@ -39,6 +40,9 @@ namespace ugly
 
         /*! Program */
         std::unique_ptr<ugly::program> _program {nullptr};
+
+        /*! Vertex array */
+        std::unique_ptr<ugly::vertex_arrays> _vertex_array {nullptr};
     };
 
 }//namespace ugly

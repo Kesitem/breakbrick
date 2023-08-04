@@ -50,10 +50,15 @@ void ugly::application::intialize()
     _program = std::make_unique<ugly::program>(vertex_shader_source, fragment_shader_source);
 
     // Create vertex buffer
-    auto vb = ugly::vertex_buffer(sizeof(vertices), vertices);
-    vb.set_layout(
+    auto vb = std::make_shared<vertex_buffer>(sizeof(vertices), vertices);
+    vb->set_layout(
         ugly::buffer_layout({
             ugly::buffer_element("a_vertex", ugly::buffer_data_type::FLOAT3, false) }));
+
+    _vertex_array = std::make_unique<ugly::vertex_arrays>();
+    _vertex_array->add_vertex_buffer(vb);
+    
+    glViewport(0, 0, engine->get_window_width(), engine->get_window_height());
 }
 
 
@@ -74,4 +79,7 @@ void ugly::application::update()
     glClear(GL_COLOR_BUFFER_BIT);
 
     _program->use();
+    _vertex_array->bind();
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    _vertex_array->unbind();
 }
