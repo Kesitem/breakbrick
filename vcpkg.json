@@ -4,6 +4,7 @@
     "dependencies": [
       "plog",
       "glad",
-      "glfw3"
+      "glfw3",
+      "glm"
     ]
   }

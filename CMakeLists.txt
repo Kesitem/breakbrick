@@ -12,6 +12,9 @@ find_package(plog CONFIG REQUIRED)
 # Add glad
 find_package(glad CONFIG REQUIRED)
 
+# Add glm
+find_package(glm CONFIG REQUIRED)
+
 # Add glfw3
 find_package(glfw3 CONFIG REQUIRED)
 
@@ -36,6 +39,7 @@ set(HEADERS
     input_button.h
     input_manager.h
     shader.h
+    program.h
     engine.h
     application.h
 )
@@ -46,6 +50,7 @@ set(SRCS
     input_button.cpp
     input_manager.cpp
     shader.cpp
+    program.cpp
     engine.cpp
     application.cpp
     main.cpp
@@ -67,7 +72,7 @@ add_executable(${PROJECT_NAME} ${ALL_SRCS} ${ALL_HEADERS})
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
 # Add library
-target_link_libraries(${PROJECT_NAME} PRIVATE plog::plog glfw glad::glad )
+target_link_libraries(${PROJECT_NAME} PRIVATE plog::plog glfw glad::glad glm::glm)
 
 # Set include directory for compilation
 target_include_directories(${PROJECT_NAME} PUBLIC
