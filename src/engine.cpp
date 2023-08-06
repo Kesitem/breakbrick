@@ -74,6 +74,11 @@ int ugly::engine::get_window_height() const
 }
 
 
+ugly::display_manager* ugly::engine::get_display_manager() const
+{
+    return _display_manager.get();
+}
+
 ugly::input_manager* ugly::engine::get_input_manager() const
 {
     return _input_manager.get();
@@ -125,11 +130,7 @@ void ugly::engine::initialize()
 
     glfwMakeContextCurrent(_window);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        LOG_ERROR << "Failed to initialize GLAD";
-        throw std::runtime_error("Failed to initialize GLAD");
-    }  
+    _display_manager.reset(new display_manager()); 
 
     _input_manager.reset(new input_manager());
     _input_manager->initialize();
@@ -154,6 +155,9 @@ void ugly::engine::shutdown()
         _input_manager->shutdown();
         _input_manager.reset(nullptr);
     }
+
+    if(_display_manager.get() != nullptr)
+        _input_manager.reset(nullptr);
 
     glfwTerminate();
 }

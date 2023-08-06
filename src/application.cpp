@@ -18,8 +18,6 @@ void ugly::application::intialize()
 
     auto engine = ugly::engine::get_instance();
 
-    glViewport(0, 0, engine->get_window_width(), engine->get_window_height());
-
     engine->get_input_manager()->create_button("quit");
     engine->get_input_manager()->bind_key_to_button(GLFW_KEY_ESCAPE, "quit");
 
@@ -58,7 +56,7 @@ void ugly::application::intialize()
     _vertex_array = std::make_unique<ugly::vertex_arrays>();
     _vertex_array->add_vertex_buffer(vb);
     
-    glViewport(0, 0, engine->get_window_width(), engine->get_window_height());
+    engine->get_display_manager()->set_viewport(0, 0, engine->get_window_width(), engine->get_window_height());
 }
 
 
@@ -75,11 +73,11 @@ void ugly::application::update()
     if(engine->get_input_manager()->get_button_action("quit") == ugly::input_action::released)
         engine->quit();
 
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    engine->get_display_manager()->set_clear_color(0.2f, 0.3f, 0.3f, 1.0f);
+    engine->get_display_manager()->clear();
 
     _program->use();
     _vertex_array->bind();
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    engine->get_display_manager()->draw_arrays(0, 3);
     _vertex_array->unbind();
 }

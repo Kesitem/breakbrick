@@ -43,6 +43,7 @@ set(HEADERS
     vertex_buffer.h
     index_buffer.h
     vertex_arrays.h
+    display_manager.h
     engine.h
     application.h
 )
@@ -57,6 +58,7 @@ set(SRCS
     vertex_buffer.cpp
     index_buffer.cpp
     vertex_arrays.cpp
+    display_manager.cpp
     engine.cpp
     application.cpp
     main.cpp

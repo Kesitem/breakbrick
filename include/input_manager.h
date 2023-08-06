@@ -12,6 +12,7 @@ namespace ugly
  * \brief Input manager
  */
 class input_manager
+// TODO: Remove initialize and shutdown
 {
 public:
 
