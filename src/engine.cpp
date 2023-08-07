@@ -133,7 +133,6 @@ void ugly::engine::initialize()
     _display_manager.reset(new display_manager()); 
 
     _input_manager.reset(new input_manager());
-    _input_manager->initialize();
 
     _application->intialize();
 }
@@ -151,10 +150,7 @@ void ugly::engine::shutdown()
     }
 
     if(_input_manager.get() != nullptr)
-    {
-        _input_manager->shutdown();
         _input_manager.reset(nullptr);
-    }
 
     if(_display_manager.get() != nullptr)
         _input_manager.reset(nullptr);

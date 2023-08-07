@@ -4,7 +4,7 @@
 
 
 /**
- * \brief GLFW key callback.
+ * @brief GLFW key callback.
  */
 void glfw_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -16,11 +16,6 @@ void glfw_key_callback(GLFWwindow* window, int key, int scancode, int action, in
 
 ugly::input_manager::input_manager()
 {
-}
-
-
-void ugly::input_manager::initialize()
-{
     LOG_INFO << "Initialize input manager...";
     
     // Register input callbacks
@@ -28,7 +23,7 @@ void ugly::input_manager::initialize()
 }
 
 
-void ugly::input_manager::shutdown()
+ugly::input_manager::~input_manager()
 {
     LOG_INFO << "Shutdown input manager...";
 }

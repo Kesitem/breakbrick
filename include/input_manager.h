@@ -8,8 +8,8 @@ namespace ugly
 {
 
 /**
- * \class input_manager
- * \brief Input manager
+ * @class input_manager
+ * @brief Input manager
  */
 class input_manager
 // TODO: Remove initialize and shutdown
@@ -17,22 +17,17 @@ class input_manager
 public:
 
     /**
-     *  \brief Constructor.
+     *  @brief Constructor.
      */
     input_manager();
 
     /**
-     * \brief Initialize manager.
+     * @brief Destructor.
      */
-    void initialize();
+    virtual ~input_manager();
 
     /**
-     * \brief Shutdown.
-     */
-    void shutdown();
-
-    /**
-     * \brief Update state manager.
+     * @brief Update state manager.
      *
      * This function updates state(for exemple pass key state from released to none).
      * It must be call after event processing and before polling events.
@@ -40,43 +35,43 @@ public:
     void update();
 
     /**
-     * \brief Process a key change.
+     * @brief Process a key change.
      * 
      * This method is mainly used by GLFW key callback.
      * If key is not bind, nothing happens.
-     * \param key_name  GLFW key name
-     * \param action    GLFW action
+     * @param key_name  GLFW key name
+     * @param action    GLFW action
      */
     void process_key_change(int key_name, int action);
 
     /**
-     * \brief Create a button.
+     * @brief Create a button.
      * 
-     * \param button_name   input_button name
+     * @param button_name   input_button name
      */
     void create_button(const std::string& button_name);
 
     /**
-     * \brief Bind a key to a button.
+     * @brief Bind a key to a button.
      * 
-     * \param key_name      GFLW key name
-     * \param button_name   Button name
+     * @param key_name      GFLW key name
+     * @param button_name   Button name
      */
     void bind_key_to_button(int key_name, const std::string& button_name);
 
     /**
-     * \brief Get a button state.
+     * @brief Get a button state.
      * 
-     * \param button_name   input_button name
-     * \return input_button state
+     * @param button_name   input_button name
+     * @return input_button state
      */
     const input_state& get_button_state(const std::string& button_name) const;
 
     /**
-     * \brief Get a button action.
+     * @brief Get a button action.
      * 
-     * \param button_name   input_button name
-     * \return input_button last action
+     * @param button_name   input_button name
+     * @return input_button last action
      */
     const input_action& get_button_action(const std::string& button_name) const;
 
