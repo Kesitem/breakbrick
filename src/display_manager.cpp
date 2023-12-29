@@ -94,6 +94,12 @@ ugly::display_manager::display_manager()
     glEnable(GL_DEBUG_OUTPUT);
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
     glDebugMessageCallback(opengl_message_callback, 0);
+
+    // Display OpenGL infos
+    PLOG_INFO << "OpenGL Vendor: " << glGetString(GL_VENDOR);
+    PLOG_INFO << "OpenGL Renderer: " << glGetString(GL_RENDERER);
+    PLOG_INFO << "OpenGL Version: " << glGetString(GL_VERSION);
+    PLOG_INFO << "OpenGL Shading Language Version: " << glGetString(GL_SHADING_LANGUAGE_VERSION);
 }
 
 
